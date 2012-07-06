@@ -1,4 +1,6 @@
 SamAmesHasGoneRuby::Application.routes.draw do
+  resources :events
+
   match '/events', :to => 'sams_core#events'
   match '/shop', :to => 'sams_core#shop'
   match '/discussion', :to => 'sams_core#discussion'
