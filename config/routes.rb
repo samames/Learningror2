@@ -1,4 +1,6 @@
 SamAmesHasGoneRuby::Application.routes.draw do
+  devise_for :administrators
+
   resources :events
 
   match '/events', :to => 'sams_core#events'

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+
+  before_filter :authenticate_administrator!, :except => [:index, :show]
   # GET /events
   # GET /events.json
   def index
@@ -80,4 +82,6 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
+  
 end

@@ -9,7 +9,21 @@
 <body>
 
 	<%= render 'layouts/header' %>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
 	<%= render 'layouts/navigation' %>
+
+	<section class="sidebar" id="right">
+		<% if administrator_signed_in? %> 
+			Signed in as <%= current_administrator.email %>:
+			<%= link_to "Sign out", destroy_administrator_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to "Sign up", new_administrator_registration_path %> or <%= link_to "Sign in", new_administrator_session_path %>
+		<% end %>
+	</section>
+
 	<%= yield %>
 	<%= render 'layouts/footer' %>
 
